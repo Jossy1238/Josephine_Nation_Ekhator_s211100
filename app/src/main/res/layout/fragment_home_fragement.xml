@@ -5,12 +5,61 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragement">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="25dp"
-        android:layout_centerInParent="true"
-        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Title TextView -->
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weather Forecast"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Description TextView -->
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleTextView"
+                android:text="Description: "
+                android:paddingBottom="8dp" />
+
+            <!-- PubDate TextView -->
+            <TextView
+                android:id="@+id/pubDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descriptionTextView"
+                android:text="PubDate: "
+                android:paddingBottom="8dp" />
+
+            <!-- Georss:Point TextView -->
+            <TextView
+                android:id="@+id/georssPointTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pubDateTextView"
+                android:text="Georss Point: "
+                android:paddingBottom="8dp" />
+
+            <!-- Refresh Button (Optional) -->
+            <Button
+                android:id="@+id/refreshButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/georssPointTextView"
+                android:text="Refresh"
+                android:onClick="onRefreshButtonClick" />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

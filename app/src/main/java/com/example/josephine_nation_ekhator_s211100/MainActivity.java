@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     BottomNavigationView bottomNavigationView;
 
-    HomeFragement homeFragement = new HomeFragement();
+    TheHomeFragment theHomeFragment = new TheHomeFragment();
     SearchFragment searchFragment = new SearchFragment();
     MapFragment mapFragment = new MapFragment();
     SettingsFragment settingsFragment = new SettingsFragment();
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("JNWeather");
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragement).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,theHomeFragment).commit();
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container,
-                            new HomeFragement()).commit();
+                            new TheHomeFragment()).commit();
                     title = "Home";
 
                 } else if (item.getItemId() == R.id.search) {

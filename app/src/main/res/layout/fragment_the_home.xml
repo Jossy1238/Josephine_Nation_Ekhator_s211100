@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TheHomeFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/BgBlue"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/Blue"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Mini Display: Date, Time, Current Temperature, Feels Like -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Date and Time -->
+                    <TextView
+                        android:id="@+id/city_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mauritius"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"/>
+
+                    <!-- Date and Time -->
+                    <TextView
+                        android:id="@+id/text_date_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date and Time"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+
+                        />
+
+                    <!-- Current Temperature -->
+                    <TextView
+                        android:id="@+id/text_current_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="35°C"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"/>
+
+                </LinearLayout>
+
+                <!-- Sun Icon -->
+                <ImageView
+                    android:id="@+id/sun_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:src="@drawable/day_partial_cloud" />
+
+            </LinearLayout>
+
+            <!-- Sunrise, Sunset, Daylight Duration -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Sunrise -->
+                <TextView
+                    android:id="@+id/text_sunrise"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sunrise"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <!-- Sunset -->
+                <TextView
+                    android:id="@+id/text_sunset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sunset"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <!-- Daylight Duration -->
+                <TextView
+                    android:id="@+id/uv_risk"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="UV Risk"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <!-- Visibility, Max/Min Temperature -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Max/Min Temperature -->
+                <TextView
+                    android:id="@+id/temp_min"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="t° min"
+                    android:textSize="14sp"/>
+
+                <!-- Visibility -->
+                <TextView
+                    android:id="@+id/temp_max"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="t° max"
+                    android:textSize="14sp"/>
+
+                <!-- Visibility -->
+                <TextView
+                    android:id="@+id/visibility"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Visibility"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+
+            </LinearLayout>
+
+            <!-- Pressure, Humidity, Wind Speed/Direction -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Pressure -->
+                <TextView
+                    android:id="@+id/text_pressure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Pressure"
+                    android:textSize="14sp"/>
+
+                <!-- Humidity -->
+                <TextView
+                    android:id="@+id/text_humidity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="Humidity"
+                    android:textSize="14sp"/>
+
+                <!-- Wind Speed/Direction -->
+                <TextView
+                    android:id="@+id/text_wind"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Wind"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

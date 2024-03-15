@@ -11,13 +11,11 @@
 package com.example.josephine_nation_ekhator_s211100;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 public class MapFragment extends Fragment {
 

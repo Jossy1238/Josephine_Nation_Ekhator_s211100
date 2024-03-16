@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,9 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
 public class TheHomeFragment extends Fragment {
     private TextView city_name;
+    private TextView weather_condition;
     private TextView text_date_time;
     private TextView text_current_temp;
     private ImageView sun_icon;
@@ -44,6 +45,7 @@ public class TheHomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_the_home, container, false);
 
         city_name = view.findViewById(R.id.city_name);
+        weather_condition = view.findViewById(R.id.weather_condition);
         text_date_time = view.findViewById(R.id.text_date_time);
         text_current_temp = view.findViewById(R.id.text_current_temp);
         sun_icon = view.findViewById(R.id.sun_icon);
@@ -67,25 +69,40 @@ public class TheHomeFragment extends Fragment {
         executorService.execute(() -> {
             try {
                 InputStream inputStream = fetchDataFromUrl("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643123");
-                List<Weather> weatherInfo = XMLPullParserHandler.parseWeatherData(inputStream);
-                Weather weather = weatherInfo != null && !weatherInfo.isEmpty() ? weatherInfo.get(0) : null;
+                Weather weather = XMLPullParserHandler.parseWeatherData(inputStream);
 
                 // Update UI on the main thread
                 getActivity().runOnUiThread(() -> {
                     if (weather != null) {
                         city_name.setText(weather.getCity_name());
+                        Log.d("TheHomeFragment", "Setting city name: " + weather.getCity_name());
+                        weather_condition.setText(weather.getWeather_condition());
+                        Log.d("TheHomeFragment", "Setting weather condition: " + weather.getWeather_condition());
                         text_date_time.setText(weather.getText_date_time());
+                        Log.d("TheHomeFragment", "Setting date time: " + weather.getText_date_time());
                         text_current_temp.setText(weather.getText_current_temp());
+                        Log.d("TheHomeFragment", "Setting current temperature: " + weather.getText_current_temp());
                         text_sunrise.setText(weather.getText_sunrise());
+                        Log.d("TheHomeFragment", "Setting sunrise time: " + weather.getText_sunrise());
                         text_sunset.setText(weather.getText_sunset());
+                        Log.d("TheHomeFragment", "Setting sunset time: " + weather.getText_sunset());
                         uv_risk.setText(weather.getUv_risk());
+                        Log.d("TheHomeFragment", "Setting UV risk: " + weather.getUv_risk());
                         temp_min.setText(weather.getTemp_min());
+                        Log.d("TheHomeFragment", "Setting minimum temperature: " + weather.getTemp_min());
                         temp_max.setText(weather.getTemp_max());
+                        Log.d("TheHomeFragment", "Setting maximum temperature: " + weather.getTemp_max());
                         visibility.setText(weather.getVisibility());
+                        Log.d("TheHomeFragment", "Setting visibility: " + weather.getVisibility());
                         text_pressure.setText(weather.getText_pressure());
+                        Log.d("TheHomeFragment", "Setting pressure: " + weather.getText_pressure());
                         text_humidity.setText(weather.getText_humidity());
+                        Log.d("TheHomeFragment", "Setting humidity: " + weather.getText_humidity());
                         text_wind.setText(weather.getText_wind());
+                        Log.d("TheHomeFragment", "Setting wind: " + weather.getText_wind());
+
                     } else {
+                        Log.d("TheHomeFragment", "Weather data is null");
                         city_name.setText("Error fetching data");
                     }
                 });
@@ -112,5 +129,4 @@ public class TheHomeFragment extends Fragment {
         }
         return inputStream;
     }
-
 }

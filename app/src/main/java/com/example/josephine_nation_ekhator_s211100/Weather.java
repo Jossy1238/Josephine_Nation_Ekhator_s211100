@@ -2,6 +2,7 @@ package com.example.josephine_nation_ekhator_s211100;
 
 public class Weather {
     private String city_name;
+    private String weather_condition;
     private String text_date_time;
     private String text_current_temp;
     private String text_sunrise;
@@ -18,6 +19,23 @@ public class Weather {
         // Default constructor
     }
 
+    public Weather(String city_name, String weather_condition, String text_date_time, String text_current_temp, String text_sunrise, String text_sunset, String uv_risk, String temp_min, String temp_max, String visibility, String text_pressure, String text_humidity, String text_wind) {
+        this.city_name = city_name;
+        this.weather_condition = weather_condition;
+        this.text_date_time = text_date_time;
+        this.text_current_temp = text_current_temp;
+        this.text_sunrise = text_sunrise;
+        this.text_sunset = text_sunset;
+        this.uv_risk = uv_risk;
+        this.temp_min = temp_min;
+        this.temp_max = temp_max;
+        this.visibility = visibility;
+        this.text_pressure = text_pressure;
+        this.text_humidity = text_humidity;
+        this.text_wind = text_wind;
+    }
+
+
     // Getters and setters for the Weather fields
 
     public String getCity_name() {
@@ -26,6 +44,15 @@ public class Weather {
 
     public void setCity_name(String city_name) {
         this.city_name = city_name;
+    }
+
+
+    public String getWeather_condition() {
+        return weather_condition;
+    }
+
+    public void setWeather_condition(String weather_condition) {
+        this.weather_condition = weather_condition;
     }
 
     public String getText_date_time() {
